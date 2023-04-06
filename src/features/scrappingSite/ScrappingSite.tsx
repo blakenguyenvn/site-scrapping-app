@@ -13,6 +13,7 @@ const CaptionTypography = styled(Typography)`
 	color: #fff;
 	font-size: 24px;
 	font-weight: 600;
+	margin-bottom: 16px;
 `;
 
 const EmptyTypography = styled(Typography)`
