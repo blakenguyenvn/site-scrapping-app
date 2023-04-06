@@ -5,9 +5,9 @@ const API_URL = "http://13.229.209.73:3000/scrap";
 async function postData(url = "", data = {}) {
 	const response = await fetch(url, {
 		method: "POST",
-		mode: "cors",
+		mode: "no-cors",
 		cache: "no-cache",
-		credentials: "same-origin",
+		credentials: "omit",
 		headers: {
 			"Content-Type": "application/json"
 		},
