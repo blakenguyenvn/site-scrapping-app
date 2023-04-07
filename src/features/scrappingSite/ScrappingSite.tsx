@@ -22,6 +22,14 @@ const EmptyTypography = styled(Typography)`
 	font-style: italic;
 `;
 
+const NoteTypography = styled(Typography)`
+	color: #f5f5f5;
+	font-size: 14px;
+	font-style: italic;
+	fort-weight: bold;
+	margin-bottom: 8px;
+`;
+
 const BootstrapButton = styled(Button)`
 	min-width: 300px;
 `;
@@ -79,6 +87,12 @@ export default function ScrappingSite() {
 						defaultValue={DEFAULT_SITE_DATA.site}
 						onChange={updateSite}
 					/>
+					<NoteTypography>
+						{"->"} You can try any site you want, example:{" "}
+						<span style={{ color: "orange" }}>
+							https://www.nationalgeographic.com/animals/article/buy-2000-rhinos-south-africa
+						</span>
+					</NoteTypography>
 				</div>
 				<div>
 					<BootstrapTextField
@@ -88,6 +102,10 @@ export default function ScrappingSite() {
 						defaultValue={DEFAULT_SITE_DATA.selector}
 						onChange={updateSelector}
 					/>
+					<NoteTypography>
+						{"->"} Try other query selector:{" "}
+						<span style={{ color: "orange" }}>aside.InlineElement</span>
+					</NoteTypography>
 				</div>
 			</Wrapper>
 			<Wrapper>
@@ -99,21 +117,19 @@ export default function ScrappingSite() {
 				<CaptionTypography>
 					{"ScreenShot from Selector (Ex. Table)"}
 				</CaptionTypography>
-				{selectorImage && (
-					<div>
-						{status === STATUSES.loading && (
-							<Loader style={{ minWidth: "400px", minHeight: "320px" }} />
-						)}
-						{status !== STATUSES.loading && (
-							<img
-								src={selectorImage}
-								width={"100%"}
-								height={"auto"}
-								alt={"Selector query image"}
-							/>
-						)}
-					</div>
-				)}
+				<div>
+					{status === STATUSES.loading && (
+						<Loader style={{ minWidth: "400px", minHeight: "320px" }} />
+					)}
+					{selectorImage && status !== STATUSES.loading && (
+						<img
+							src={selectorImage}
+							width={"100%"}
+							height={"auto"}
+							alt={"Selector query image"}
+						/>
+					)}
+				</div>
 				{!selectorImage && (
 					<div>
 						<EmptyTypography>{"Image cannot generate"}</EmptyTypography>
@@ -122,21 +138,19 @@ export default function ScrappingSite() {
 			</ContentWrapper>
 			<ContentWrapper>
 				<CaptionTypography>{"ScreenShot of the whole page"}</CaptionTypography>
-				{pageImage && (
-					<div>
-						{status === STATUSES.loading && (
-							<Loader style={{ minWidth: "400px", minHeight: "320px" }} />
-						)}
-						{status !== STATUSES.loading && (
-							<img
-								src={pageImage}
-								width={"100%"}
-								height={"auto"}
-								alt={"Page image"}
-							/>
-						)}
-					</div>
-				)}
+				<div>
+					{status === STATUSES.loading && (
+						<Loader style={{ minWidth: "400px", minHeight: "320px" }} />
+					)}
+					{pageImage && status !== STATUSES.loading && (
+						<img
+							src={pageImage}
+							width={"100%"}
+							height={"auto"}
+							alt={"Page image"}
+						/>
+					)}
+				</div>
 				{!pageImage && (
 					<div>
 						<EmptyTypography>{"Image cannot generate"}</EmptyTypography>
