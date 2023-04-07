@@ -1,6 +1,6 @@
 import { ScrappingSiteParam } from "./scrappingSiteType";
 
-const API_URL = "http://13.229.209.73:3000/scrap";
+const API_URL = "http://13.214.177.79:4000/scrap";
 
 async function postData(url = "", data = {}) {
 	const response = await fetch(url, {
